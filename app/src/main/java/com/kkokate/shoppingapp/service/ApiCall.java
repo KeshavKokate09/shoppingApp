@@ -1,6 +1,5 @@
 package com.kkokate.shoppingapp.service;
 
-import com.kkokate.shoppingapp.model.Category;
 import com.kkokate.shoppingapp.model.Products;
 
 import java.util.List;

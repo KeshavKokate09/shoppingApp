@@ -1,8 +1,11 @@
 package com.kkokate.shoppingapp.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsDisplayPage extends AppCompatActivity implements View.OnClickListener {
+public class ProductsDisplayPage extends AppCompatActivity {
 
     protected List<Products> productsList;
     protected String category;
@@ -66,10 +69,16 @@ public class ProductsDisplayPage extends AppCompatActivity implements View.OnCli
 
     private void initView() {
        gridView = findViewById(R.id.productsGridView);
+       gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               String str=adapterView.getItemAtPosition(i).toString();
+                System.out.println(str);
+            /*   Intent intent = new Intent(ProductsDisplayPage.this,ProductsDisplayPage.class);
+               intent.putExtra("CATEGORY",listItemText);
+               startActivity(intent);*/
+           }
+       });
     }
 
-    @Override
-    public void onClick(View view) {
-        //toDo add gridLayout
-    }
 }

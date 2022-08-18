@@ -1,10 +1,8 @@
 package com.kkokate.shoppingapp.pages;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kkokate.shoppingapp.R;
 import com.kkokate.shoppingapp.adapter.CategoryListLayoutAdapter;
-import com.kkokate.shoppingapp.model.Category;
 import com.kkokate.shoppingapp.service.ApiCall;
 import com.kkokate.shoppingapp.service.BaseApi;
 
