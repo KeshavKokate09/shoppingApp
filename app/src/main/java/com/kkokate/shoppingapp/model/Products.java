@@ -2,7 +2,10 @@ package com.kkokate.shoppingapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-public class Products {
+
+import java.io.Serializable;
+
+public class Products implements Serializable {
 
     @SerializedName("id")
     @Expose

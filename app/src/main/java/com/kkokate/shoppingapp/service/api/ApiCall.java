@@ -1,4 +1,4 @@
-package com.kkokate.shoppingapp.service;
+package com.kkokate.shoppingapp.service.api;
 
 import com.kkokate.shoppingapp.model.Products;
 
@@ -17,5 +17,4 @@ public interface ApiCall {
 
     @GET("products/category/{category}")
     Call<List<Products>> getProductsListByCategory(@Path("category") String category);
-
 }

@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kkokate.shoppingapp.R;
 import com.kkokate.shoppingapp.adapter.CategoryListLayoutAdapter;
-import com.kkokate.shoppingapp.service.ApiCall;
-import com.kkokate.shoppingapp.service.BaseApi;
+import com.kkokate.shoppingapp.service.api.ApiCall;
+import com.kkokate.shoppingapp.service.api.BaseApi;
 
 import java.util.List;
 

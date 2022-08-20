@@ -1,4 +1,4 @@
-package com.kkokate.shoppingapp.service;
+package com.kkokate.shoppingapp.service.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

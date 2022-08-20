@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kkokate.shoppingapp.R;
 import com.kkokate.shoppingapp.adapter.ProductsListLayoutAdapter;
 import com.kkokate.shoppingapp.model.Products;
-import com.kkokate.shoppingapp.service.ApiCall;
-import com.kkokate.shoppingapp.service.BaseApi;
+import com.kkokate.shoppingapp.service.api.ApiCall;
+import com.kkokate.shoppingapp.service.api.BaseApi;
 
 import java.util.List;
 
@@ -72,11 +71,11 @@ public class ProductsDisplayPage extends AppCompatActivity {
        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               String str=adapterView.getItemAtPosition(i).toString();
-                System.out.println(str);
-            /*   Intent intent = new Intent(ProductsDisplayPage.this,ProductsDisplayPage.class);
-               intent.putExtra("CATEGORY",listItemText);
-               startActivity(intent);*/
+               Products product = productsList.get(i);
+
+               Intent intent = new Intent(ProductsDisplayPage.this,ProductsDetailPage.class);
+               intent.putExtra("PRODUCT", product);
+               startActivity(intent);
            }
        });
     }
