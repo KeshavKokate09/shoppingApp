@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/homePageTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/material_dynamic_primary80"
+        android:logo="@drawable/baseline_list_white_20"
+        android:clickable="true">
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="235dp"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:background="@color/design_default_color_on_primary"
+            android:layout_marginStart="40dp"
+            app:drawableLeftCompat="@drawable/baseline_search_black_20" />
+
+        <TextView
+            android:id="@+id/listTextView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            app:drawableRightCompat="@drawable/app_icon" />
+
+    </Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        >
+
+        <GridView
+            android:id="@+id/productsGridViewHomePage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="6dp"
+            android:numColumns="2"
+            android:scrollY="@dimen/material_emphasis_medium" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,12 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".pages.CategoryDisplayPage"
     android:orientation="vertical">
-<androidx.appcompat.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:title="Category"
-    app:titleMarginStart="150dp"
-    />
+    <Toolbar
+        android:id="@+id/homePageTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/material_dynamic_primary80"
+        android:title="@string/category"
+        android:gravity="center"
+        android:titleMarginStart="160dp"
+        />
     <ListView
         android:id="@+id/categoryListView"
         android:layout_width="wrap_content"

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kkokate.shoppingapp.R;
 import com.kkokate.shoppingapp.adapter.CategoryListLayoutAdapter;
-import com.kkokate.shoppingapp.service.api.ApiCall;
+import com.kkokate.shoppingapp.service.api.Api;
 import com.kkokate.shoppingapp.service.api.BaseApi;
 
 import java.util.List;
@@ -34,13 +34,12 @@ public class CategoryDisplayPage extends AppCompatActivity implements View.OnCli
 
     private void getTheListOfCategory() {
         try{
-            ApiCall call = BaseApi.getInstance().create(ApiCall.class);
+            Api call = BaseApi.getInstance().create(Api.class);
             Call<List<String>> category = call.getCategoryList();
             category.enqueue(new Callback<List<String>>() {
                 @Override
                 public void onResponse(Call<List<String>> call, Response<List<String>> response) {
                     categoryList= response.body();
-                    System.out.println(">>>>>>>>>>>>>"+response.body());
                     if(categoryList!=null){
                         CategoryListLayoutAdapter adapter = new CategoryListLayoutAdapter(CategoryDisplayPage.this,R.id.categoryListView,categoryList);
                         listView.setAdapter(adapter);

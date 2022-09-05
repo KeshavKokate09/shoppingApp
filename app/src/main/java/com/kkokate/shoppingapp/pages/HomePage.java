@@ -1,14 +1,16 @@
 package com.kkokate.shoppingapp.pages;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kkokate.shoppingapp.R;
+import com.kkokate.shoppingapp.adapter.HomePageProductListAdapter;
 import com.kkokate.shoppingapp.adapter.ProductsListLayoutAdapter;
 import com.kkokate.shoppingapp.model.Products;
 import com.kkokate.shoppingapp.service.api.Api;
@@ -20,36 +22,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsDisplayPage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
     protected List<Products> productsList;
-    protected String category;
-    GridView gridView;
+    protected EditText searchBar;
+    protected TextView listBar;
+    protected GridView gridView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_display_page);
-        category=getIntent().getStringExtra("CATEGORY");
+        setContentView(R.layout.activity_home_page_layout);
         getTheProductList();
-        initView();
+        initUi();
     }
 
     private void getTheProductList() {
         try{
             Api api = BaseApi.getInstance().create(Api.class);
             Call<List<Products>> call = null;
-            if(category==null){
-               call =api.getProductsList();
-            }else{
-                call =api.getProductsListByCategory(category);
-            }
+            call =api.getProductsList();
             call.enqueue(new Callback<List<Products>>() {
                 @Override
                 public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
                     productsList =response.body();
                     if(productsList!=null){
-                        ProductsListLayoutAdapter adapter = new ProductsListLayoutAdapter(ProductsDisplayPage.this,R.layout.list_products,productsList);
+                        HomePageProductListAdapter adapter = new HomePageProductListAdapter(HomePage.this,R.layout.list_products_horizontal,productsList);
                         gridView.setAdapter(adapter);
                     }
                 }
@@ -66,18 +64,15 @@ public class ProductsDisplayPage extends AppCompatActivity {
 
     }
 
-    private void initView() {
-       gridView = findViewById(R.id.productsGridView);
-       gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               Products product = productsList.get(i);
-
-               Intent intent = new Intent(ProductsDisplayPage.this,ProductsDetailPage.class);
-               intent.putExtra("PRODUCT", product);
-               startActivity(intent);
-           }
-       });
+    private void initUi() {
+        searchBar = findViewById(R.id.searchBar);
+        listBar = findViewById(R.id.listTextView);
+        listBar.setOnClickListener(this);
+        gridView = findViewById(R.id.productsGridViewHomePage);
     }
 
+    @Override
+    public void onClick(View view) {
+        
+    }
 }

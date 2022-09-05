@@ -8,7 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface ApiCall {
+public interface Api {
     @GET("products/categories")
     Call<List<String>> getCategoryList();
 
