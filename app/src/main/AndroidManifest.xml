@@ -16,10 +16,6 @@
         tools:targetApi="31">
 
 
-        <activity
-            android:name=".MainActivity"/>
-        <activity android:name=".pages.ProductsDisplayPage"/>
-        <activity android:name=".pages.CategoryDisplayPage"/>
         <activity android:name=".pages.ProductsDetailPage"/>
         <activity android:name=".pages.HomePage"
             android:exported="true">
